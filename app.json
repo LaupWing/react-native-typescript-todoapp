@@ -13,7 +13,8 @@
     },
     "android": {
       "package": "com.laupwing.reactnativetypescripttodoapp"
-    }
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
   },
   "name": "react-native-base"
 }
