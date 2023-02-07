@@ -1,3 +1,4 @@
+import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { StyleSheet, Text, View } from "react-native"
@@ -11,7 +12,11 @@ export type RootStackParamsList = {
 
 const Stack = createNativeStackNavigator<RootStackParamsList>()
 
+
 export default function App() {
+   GoogleSignin.configure({
+      webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
+   })
    return (
       <NavigationContainer>
          <Stack.Navigator>
