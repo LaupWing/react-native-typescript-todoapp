@@ -13,7 +13,7 @@ const Login = () => {
    return (
       <View>
          <Text>Login</Text>
-         <Text onPress={() => navigation.navigate("Home")}>Go to login</Text>
+         <Text onPress={() => navigation.navigate("Home")}>Go to home</Text>
       </View>
    )
 }
