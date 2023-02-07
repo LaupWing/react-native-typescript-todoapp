@@ -1,0 +1,9 @@
+{
+   "expo": {
+      "name": "react-native-typescript-todoapp",
+      "slug": "react-native-typescript-todoapp",
+      "version": "1.0.0",
+      "assetBundlePatterns": ["**/*"]
+   },
+   "name": "react-native-base"
+}
