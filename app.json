@@ -12,7 +12,8 @@
       }
     },
     "android": {
-      "package": "com.laupwing.reactnativetypescripttodoapp"
+      "package": "com.laupwing.reactnativetypescripttodoapp",
+      "googleServicesFile": "./google-services.json"
     },
     "plugins": ["@react-native-google-signin/google-signin"]
   },
