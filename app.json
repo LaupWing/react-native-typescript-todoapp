@@ -1,9 +1,19 @@
 {
-   "expo": {
-      "name": "react-native-typescript-todoapp",
-      "slug": "react-native-typescript-todoapp",
-      "version": "1.0.0",
-      "assetBundlePatterns": ["**/*"]
-   },
-   "name": "react-native-base"
+  "expo": {
+    "name": "react-native-typescript-todoapp",
+    "slug": "react-native-typescript-todoapp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "3715e1dc-4bbe-4078-ab7e-673d98e0a4c7"
+      }
+    },
+    "android": {
+      "package": "com.laupwing.reactnativetypescripttodoapp"
+    }
+  },
+  "name": "react-native-base"
 }
