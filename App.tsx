@@ -1,10 +1,24 @@
+import { NavigationContainer } from "@react-navigation/native"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { StyleSheet, Text, View } from "react-native"
+import Home from "./screens/Home"
+import Login from "./screens/Login"
+
+export type RootStackParamsList = {
+   Home: undefined
+   Login: undefined
+}
+
+const Stack = createNativeStackNavigator<RootStackParamsList>()
 
 export default function App() {
    return (
-      <View style={styles.container}>
-         <Text>Open up App.tsx to start working on your app!</Text>
-      </View>
+      <NavigationContainer>
+         <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="Login" component={Login}/>
+         </Stack.Navigator>
+      </NavigationContainer>
    )
 }
 
