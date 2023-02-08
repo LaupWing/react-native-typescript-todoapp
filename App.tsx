@@ -7,7 +7,7 @@ import auth from "@react-native-firebase/auth"
 import {FirebaseAuthTypes} from "@react-native-firebase/auth"
 import Home from "./screens/Home"
 import Login from "./screens/Login"
-// import { LinearGradient } from "expo-linear-gradient"
+import { LinearGradient } from "expo-linear-gradient"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -32,12 +32,12 @@ export default function App() {
 
    return (
       <NavigationContainer>
-         {/* <LinearGradient colors={["#6366f1", "#a855f7", "#ec4899"]}> */}
+         <LinearGradient colors={["#6366f1", "#a855f7", "#ec4899"]}>
             <Stack.Navigator>
                <Stack.Screen name="Home" component={Home}/>
                <Stack.Screen name="Login" component={Login}/>
             </Stack.Navigator>
-         {/* </LinearGradient> */}
+         </LinearGradient>
       </NavigationContainer>
    )
 }
