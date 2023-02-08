@@ -11,8 +11,8 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const navigation = useNavigation<NavigationProp>()
    return (
-      <View>
-         <Text>Home</Text>
+      <View className="bg-red-400">
+         <Text className="text-red-400">Home</Text>
          <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
       </View>
    )
