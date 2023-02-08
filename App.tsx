@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { useEffect } from "react"
 import { StyleSheet, Text, View } from "react-native"
 import auth from "@react-native-firebase/auth"
+import {FirebaseAuthTypes} from "@react-native-firebase/auth"
 import Home from "./screens/Home"
 import Login from "./screens/Login"
 
@@ -19,7 +20,7 @@ GoogleSignin.configure({
 })
 
 export default function App() {
-   const onAuthStateChanged = (user:any) => {
+   const onAuthStateChanged:FirebaseAuthTypes.AuthListenerCallback = (user) => {
       console.log(user)
    }
 
