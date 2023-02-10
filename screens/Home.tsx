@@ -2,6 +2,7 @@ import { View, Text } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
+import Layout from "../components/Layout"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -11,10 +12,10 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const navigation = useNavigation<NavigationProp>()
    return (
-      <View className="bg-red-400">
+      <Layout>
          <Text className="text-red-400">Home</Text>
          <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
-      </View>
+      </Layout>
    )
 }
 export default Home
