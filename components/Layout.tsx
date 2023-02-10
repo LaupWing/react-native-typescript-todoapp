@@ -4,11 +4,14 @@ import { View } from "react-native"
 
 const Layout:FC<PropsWithChildren> = ({ children }) => {
    return (
-      // <LinearGradient style={{height: 100}} colors={["#6366f1", "#a855f7", "#ec4899"]}>
-         <View className="flex-1">
+      <LinearGradient 
+         className="justify-center items-center flex flex-1" 
+         colors={["#6366f1", "#a855f7", "#ec4899"]}
+      >
+         <View className="flex-1 justify-center items-center">
             {children}
          </View>
-      // </LinearGradient>
+      </LinearGradient>
    )
 }
 export default Layout
