@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1088828136827",
+    "project_id": "todo-app-17207",
+    "storage_bucket": "todo-app-17207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088828136827:android:1d7e42575c1f1d691bf1de",
+        "android_client_info": {
+          "package_name": "com.laupwing.reactnativebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088828136827-avpj3j6gauaf91qftboiinv1l87ja43c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.laupwing.reactnativebase",
+            "certificate_hash": "6af759b262d920116482bab565a31e050026cbc4"
+          }
+        },
+        {
+          "client_id": "1088828136827-sha3mvd6jn5rq3kqvavffo3unnvi4v2l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.laupwing.reactnativebase",
+            "certificate_hash": "02d7646c6ca14015e9f8cf04c89c77adb058f0a5"
+          }
+        },
+        {
+          "client_id": "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeiChUvtKalGvGpVDbS-oEQA01jO6MyyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088828136827-j7d12v5bk9mo2uq7pjsab99qhea2r9po.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
