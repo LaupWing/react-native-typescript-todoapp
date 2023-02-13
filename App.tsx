@@ -41,10 +41,10 @@ const App = () => {
                      headerShown: false
                   }}
                >
-                  <Stack.Screen 
+                  {user && <Stack.Screen 
                      name="Home" 
                      component={Home}
-                  />
+                  />}
                   <Stack.Screen 
                      name="Login" 
                      component={Login}
