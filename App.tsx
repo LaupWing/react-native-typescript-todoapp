@@ -5,8 +5,7 @@ import Home from "./screens/Home"
 import Login from "./screens/Login"
 import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
-import auth from "@react-native-firebase/auth"
-import { User } from "@react-native-google-signin/google-signin/lib/typescript/src/types"
+import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -17,7 +16,7 @@ const Stack = createNativeStackNavigator<RootStackParamsList>()
 
 const App = () => {
    const [initializing, setInitializing] = useState<boolean>(true)
-   const [user, setUser] = useState<User>(null)
+   const [user, setUser] = useState<FirebaseAuthTypes.User>(null)
 
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
@@ -25,7 +24,10 @@ const App = () => {
 
    useEffect(() => {
       const subscriber = auth().onAuthStateChanged(user => {
-         console.log(user)
+         setUser(user)
+         if(initializing){
+            setInitializing(false)
+         }
       })
       return subscriber
    }, [])
