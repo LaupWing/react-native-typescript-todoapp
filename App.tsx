@@ -14,7 +14,7 @@ export type RootStackParamsList = {
 
 const Stack = createNativeStackNavigator<RootStackParamsList>()
 
-export default function App() {
+const App = () => {
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
    })
@@ -49,3 +49,5 @@ export default function App() {
       </View>
    )
 }
+
+export default App
