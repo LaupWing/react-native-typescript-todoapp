@@ -5,6 +5,7 @@ import Home from "./screens/Home"
 import Login from "./screens/Login"
 import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect } from "react"
+import auth from "@react-native-firebase/auth"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -18,7 +19,12 @@ export default function App() {
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
    })
 
-   useEffect
+   useEffect(() => {
+      const subscriber = auth().onAuthStateChanged(user => {
+         console.log(user)
+      })
+      return subscriber
+   }, [])
 
    return (
       <View className="flex-1">
