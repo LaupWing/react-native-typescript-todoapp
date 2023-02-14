@@ -9,6 +9,7 @@ import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
 import { todos as _todos } from "../dummyData.json"
+import { FlatList } from "react-native/Libraries/Lists/FlatList"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -31,6 +32,14 @@ const Home = () => {
                <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
+            </View>
+            <View>
+               {/* <FlatList
+                  data={todos}
+                  renderItem={({item})=>(
+                     <Text>Test</Text>
+                  )}
+               /> */}
             </View>
          </View>
       </Layout>
