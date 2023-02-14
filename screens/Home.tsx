@@ -22,8 +22,8 @@ const Home = () => {
    const [todos, setTodos] = useState(_todos)
 
    return (
-      <Layout>
-         <SafeAreaView className="bg-white mt-[10vh] rounded w-full flex-1 flex flex-col mb-4 border-[3px] border-indigo-600">
+      // <Layout>
+         <View className="bg-white mt-[10vh] rounded w-full flex-1 mb-4 border-[3px] border-indigo-600">
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
@@ -48,8 +48,8 @@ const Home = () => {
                }
                keyExtractor={item => item.text}
             />
-         </SafeAreaView>
-      </Layout>
+         </View>
+      // </Layout>
    )
 }
 export default Home

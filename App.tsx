@@ -33,24 +33,22 @@ const App = () => {
    }, [])
 
    return (
-      <View className="flex-1">
-         <NavigationContainer>
-            <Stack.Navigator
-               screenOptions={{
-                  headerShown: false
-               }}
-            >
-               <Stack.Screen 
-                  name="Home" 
-                  component={Home}
-               />
-               <Stack.Screen 
-                  name="Login" 
-                  component={Login}
-               />
-            </Stack.Navigator>
-         </NavigationContainer>
-      </View>
+      <NavigationContainer>
+         <Stack.Navigator
+            screenOptions={{
+               headerShown: false
+            }}
+         >
+            <Stack.Screen 
+               name="Home" 
+               component={Home}
+            />
+            <Stack.Screen 
+               name="Login" 
+               component={Login}
+            />
+         </Stack.Navigator>
+      </NavigationContainer>
    )
 }
 
