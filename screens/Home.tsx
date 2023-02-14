@@ -24,7 +24,7 @@ const Home = () => {
    return (
       <Layout>
          <View className="bg-white mt-[10vh] rounded w-full flex-1 mb-4 border-[3px] border-indigo-600">
-            {/* <View className="w-full bg-indigo-600 p-2">
+            <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
             <View className="flex flex-row ">
@@ -35,7 +35,7 @@ const Home = () => {
                <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
-            </View> */}
+            </View>
             <FlatList
                data={todos}
                renderItem={({item})=>
