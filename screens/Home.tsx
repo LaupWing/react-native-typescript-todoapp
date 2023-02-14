@@ -2,6 +2,7 @@ import {
    View, 
    Text,
    TextInput,
+   FlatList,
    TouchableOpacity, 
 } from "react-native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
@@ -9,7 +10,6 @@ import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
 import { todos as _todos } from "../dummyData.json"
-import { FlatList } from "react-native/Libraries/Lists/FlatList"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -18,6 +18,7 @@ export type NavigationProp = NativeStackNavigationProp<
 
 const Home = () => {
    const [todos, setTodos] = useState(_todos) 
+   console.log(todos)
    return (
       <Layout>
          <View className="bg-white mt-[10vh] rounded w-full border-[3px] border-indigo-600">
@@ -34,12 +35,17 @@ const Home = () => {
                </TouchableOpacity>
             </View>
             <View>
-               {/* <FlatList
+               <FlatList
                   data={todos}
-                  renderItem={({item})=>(
-                     <Text>Test</Text>
-                  )}
-               /> */}
+                  renderItem={({item})=>
+                     <View>
+                        <Text>
+                           Test
+                        </Text>
+                     </View>
+                  }
+                  keyExtractor={item => item.text}
+               />
             </View>
          </View>
       </Layout>
