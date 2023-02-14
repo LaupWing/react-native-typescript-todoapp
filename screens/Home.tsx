@@ -8,6 +8,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
+import { todos as _todos } from "../dummyData.json"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -15,7 +16,7 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Home = () => {
-   const [todos, setTodos] = useState([]) 
+   const [todos, setTodos] = useState(_todos) 
    return (
       <Layout>
          <View className="bg-white mt-[10vh] rounded w-full border-[3px] border-indigo-600">
