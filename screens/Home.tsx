@@ -13,14 +13,15 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Home = () => {
-   const navigation = useNavigation<NavigationProp>()
    return (
       <Layout>
          <View className="bg-white mt-[10vh] rounded w-full border-[3px] border-indigo-600">
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
-            <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
+            <View>
+
+            </View>
          </View>
       </Layout>
    )
