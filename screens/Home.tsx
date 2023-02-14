@@ -27,7 +27,18 @@ const Home = () => {
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
-            <View className="flex flex-row ">
+            <FlatList
+               data={todos}
+               renderItem={({item})=>
+                  <View className="py-2 border-b border-gray-300 last:border-0">
+                     <Text>
+                        {item.text}
+                     </Text>
+                  </View>
+               }
+               keyExtractor={item => item.text}
+            />
+            <View className="flex flex-row border-t border-gray-300">
                <TextInput
                   placeholder="Add a new todo"
                   className="px-2 py-1 flex-1"
@@ -36,17 +47,6 @@ const Home = () => {
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
             </View>
-            <FlatList
-               data={todos}
-               renderItem={({item})=>
-                  <View className="py-2 border-b">
-                     <Text>
-                        {item.text}
-                     </Text>
-                  </View>
-               }
-               keyExtractor={item => item.text}
-            />
          </View>
       </Layout>
    )
