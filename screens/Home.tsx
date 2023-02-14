@@ -25,7 +25,7 @@ const Home = () => {
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
-            <View className="flex flex-row">
+            <View className="flex flex-row ">
                <TextInput
                   placeholder="Add a new todo"
                   className="px-2 py-1 flex-1"
@@ -36,8 +36,9 @@ const Home = () => {
             </View>
             <FlatList
                data={todos}
+               className="divide-y-2"
                renderItem={({item})=>
-                  <View className="py-2">
+                  <View className="py-2 border-b">
                      <Text>
                         {item.text}
                      </Text>
