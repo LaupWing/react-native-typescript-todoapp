@@ -17,8 +17,8 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Home = () => {
-   const [todos, setTodos] = useState(_todos) 
-   console.log(todos)
+   const [todos, setTodos] = useState(_todos)
+
    return (
       <Layout>
          <View className="bg-white mt-[10vh] rounded w-full border-[3px] border-indigo-600">
@@ -34,19 +34,17 @@ const Home = () => {
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
             </View>
-            <View>
-               <FlatList
-                  data={todos}
-                  renderItem={({item})=>
-                     <View>
-                        <Text>
-                           Test
-                        </Text>
-                     </View>
-                  }
-                  keyExtractor={item => item.text}
-               />
-            </View>
+            <FlatList
+               data={todos}
+               renderItem={({item})=>
+                  <View className="py-2">
+                     <Text>
+                        {item.text}
+                     </Text>
+                  </View>
+               }
+               keyExtractor={item => item.text}
+            />
          </View>
       </Layout>
    )
