@@ -23,13 +23,15 @@ const Home = () => {
    const [newTodo, setNewTodo] = useState("")
 
    const addNewTodo = () => {
-      console.log("addddding!")
-      console.log(newTodo)
+      setTodos([...todos, {
+         text: newTodo,
+         finished: false
+      }])
    }
 
    return (
       <Layout>
-         <View className="bg-white mt-[10vh] rounded w-full flex-1 mb-4 border-[3px] border-indigo-600">
+         <View className="bg-white mt-[10vh] rounded flex-1 w-full mb-4 border-[3px] border-indigo-600">
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
@@ -42,7 +44,7 @@ const Home = () => {
                      </Text>
                   </View>
                }
-               keyExtractor={item => item.text}
+               keyExtractor={(item) => item.text}
             />
             <View className="flex flex-row border-t border-gray-300">
                <TextInput
