@@ -16,10 +16,12 @@ const Home = () => {
    const navigation = useNavigation<NavigationProp>()
    return (
       <Layout>
-         <View className="w-full bg-indigo-500">
-            <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
+         <View className="bg-white mt-[10vh] rounded w-full shrink-0">
+            <View className="w-full bg-indigo-600 p-2 rounded-t">
+               <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
+            </View>
+            <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
          </View>
-         <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
       </Layout>
    )
 }
