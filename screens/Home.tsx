@@ -1,4 +1,7 @@
-import { View, Text } from "react-native"
+import { 
+   View, 
+   Text, 
+} from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
@@ -13,7 +16,9 @@ const Home = () => {
    const navigation = useNavigation<NavigationProp>()
    return (
       <Layout>
-         <Text className="text-red-400">Home</Text>
+         <View className="w-full bg-indigo-500">
+            <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
+         </View>
          <Text onPress={() => navigation.navigate("Login")}>Go to login</Text>
       </Layout>
    )

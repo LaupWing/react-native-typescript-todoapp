@@ -8,7 +8,7 @@ const Layout:FC<PropsWithChildren> = ({ children }) => {
          className="justify-center items-center flex flex-1" 
          colors={["#6366f1", "#a855f7", "#ec4899"]}
       >
-         <View className="flex-1 justify-center items-center">
+         <View className="flex-1">
             {children}
          </View>
       </LinearGradient>
