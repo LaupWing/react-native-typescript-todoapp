@@ -2,7 +2,7 @@
    "todos": [
       {
          "text": "Buy groceries",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Do laundry",
@@ -38,11 +38,11 @@
       },
       {
          "text": "Clean the bathroom",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Pay bills",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Take dog for a walk",
@@ -66,7 +66,7 @@
       },
       {
          "text": "Cook dinner",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Plan weekend trip",
@@ -86,7 +86,7 @@
       },
       {
          "text": "Call old friend",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Buy new shoes",
@@ -98,7 +98,7 @@
       },
       {
          "text": "Take a nap",
-         "finished": false
+         "finished": true
       },
       {
          "text": "Plan birthday party",
@@ -118,7 +118,7 @@
       },
       {
          "text": "Clean the car",
-         "finished": false
+         "finished": true
       }
    ]
 }
