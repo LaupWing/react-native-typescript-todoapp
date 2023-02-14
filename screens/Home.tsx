@@ -20,6 +20,12 @@ export type NavigationProp = NativeStackNavigationProp<
 
 const Home = () => {
    const [todos, setTodos] = useState(_todos)
+   const [newTodo, setNewTodo] = useState("")
+
+   const addNewTodo = () => {
+      console.log("addddding!")
+      console.log(newTodo)
+   }
 
    return (
       <Layout>
@@ -42,8 +48,12 @@ const Home = () => {
                <TextInput
                   placeholder="Add a new todo"
                   className="px-2 py-1 flex-1"
+                  onChangeText={setNewTodo}
                />
-               <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
+               <TouchableOpacity 
+                  className="bg-indigo-500 px-4 items-center justify-center"
+                  onPress={addNewTodo}
+               >
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
             </View>
