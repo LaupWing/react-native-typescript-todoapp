@@ -1,6 +1,8 @@
 import { 
    View, 
-   Text, 
+   Text,
+   TextInput,
+   TouchableOpacity, 
 } from "react-native"
 import { useNavigation } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
@@ -19,8 +21,14 @@ const Home = () => {
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
             </View>
-            <View>
-
+            <View className="flex flex-row">
+               <TextInput
+                  placeholder="Add a new todo"
+                  className="px-2 py-1 flex-1"
+               />
+               <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
+                  <Text className="text-white uppercase font-bold">add</Text>
+               </TouchableOpacity>
             </View>
          </View>
       </Layout>
