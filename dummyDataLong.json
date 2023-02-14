@@ -1,0 +1,124 @@
+{
+   "todos": [
+      {
+         "text": "Buy groceries",
+         "finished": true
+      },
+      {
+         "text": "Do laundry",
+         "finished": true
+      },
+      {
+         "text": "Clean the kitchen",
+         "finished": false
+      },
+      {
+         "text": "Take out the trash",
+         "finished": false
+      },
+      {
+         "text": "Go for a run",
+         "finished": true
+      },
+      {
+         "text": "Read a book",
+         "finished": false
+      },
+      {
+         "text": "Finish work project",
+         "finished": true
+      },
+      {
+         "text": "Call mom",
+         "finished": false
+      },
+      {
+         "text": "Schedule dentist appointment",
+         "finished": false
+      },
+      {
+         "text": "Clean the bathroom",
+         "finished": true
+      },
+      {
+         "text": "Pay bills",
+         "finished": true
+      },
+      {
+         "text": "Take dog for a walk",
+         "finished": true
+      },
+      {
+         "text": "Go to the gym",
+         "finished": false
+      },
+      {
+         "text": "Study for exam",
+         "finished": false
+      },
+      {
+         "text": "Write a blog post",
+         "finished": true
+      },
+      {
+         "text": "Practice playing guitar",
+         "finished": false
+      },
+      {
+         "text": "Cook dinner",
+         "finished": true
+      },
+      {
+         "text": "Plan weekend trip",
+         "finished": false
+      },
+      {
+         "text": "Organize closet",
+         "finished": false
+      },
+      {
+         "text": "Watch a movie",
+         "finished": true
+      },
+      {
+         "text": "Volunteer at local shelter",
+         "finished": false
+      },
+      {
+         "text": "Call old friend",
+         "finished": true
+      },
+      {
+         "text": "Buy new shoes",
+         "finished": false
+      },
+      {
+         "text": "Learn a new skill",
+         "finished": false
+      },
+      {
+         "text": "Take a nap",
+         "finished": true
+      },
+      {
+         "text": "Plan birthday party",
+         "finished": false
+      },
+      {
+         "text": "Paint a picture",
+         "finished": false
+      },
+      {
+         "text": "Go on a hike",
+         "finished": false
+      },
+      {
+         "text": "Do yoga",
+         "finished": false
+      },
+      {
+         "text": "Clean the car",
+         "finished": true
+      }
+   ]
+}
