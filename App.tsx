@@ -1,11 +1,12 @@
 import { NavigationContainer, useNavigation } from "@react-navigation/native"
-import { View } from "react-native"
+import { ScrollView, View, Text } from "react-native"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Home from "./screens/Home"
 import Login from "./screens/Login"
 import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
+import {todos} from "./dummyDataLong.json"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -33,23 +34,34 @@ const App = () => {
    }, [])
 
    return (
-      <NavigationContainer>
-         <Stack.Navigator
-            screenOptions={{
-               headerShown: false
-            }}
-         >
-            <Stack.Screen 
-               name="Home" 
-               component={Home}
-            />
-            <Stack.Screen 
-               name="Login" 
-               component={Login}
-            />
-         </Stack.Navigator>
-      </NavigationContainer>
+      <ScrollView>
+         {todos.map(todo => <Todo key={todo.text} item={todo}/>)}  
+      </ScrollView>
+      // <NavigationContainer>
+      //    <Stack.Navigator
+      //       screenOptions={{
+      //          headerShown: false
+      //       }}
+      //    >
+      //       <Stack.Screen 
+      //          name="Home" 
+      //          component={Home}
+      //       />
+      //       <Stack.Screen 
+      //          name="Login" 
+      //          component={Login}
+      //       />
+      //    </Stack.Navigator>
+      // </NavigationContainer>
    )
 }
 
 export default App
+
+const Todo = ({item}) =>(
+   <View className="py-2 border-b">
+      <Text>
+         {item.text}
+      </Text>
+   </View>
+)

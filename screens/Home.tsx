@@ -4,7 +4,8 @@ import {
    TextInput,
    FlatList,
    TouchableOpacity, 
-   SafeAreaView
+   SafeAreaView,
+   ScrollView
 } from "react-native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
@@ -36,20 +37,26 @@ const Home = () => {
    return (
       // <Layout>
         // <View className="bg-white rounded w-full border-[3px] border-indigo-600">
-            <FlatList
-               data={todos}
-               className="h-full"
-               renderItem={({item})=>
-                  <View className="py-2 border-b">
-                     <Text>
-                        {item.text}
-                     </Text>
-                  </View>
-               }
-               keyExtractor={item => item.text}
-            />
+         <ScrollView className="flex flex-col">
+            {todos.map(todo => <Todo key={todo.text} item={todo}/>)}  
+         </ScrollView>
+            // <FlatList
+            //    data={todos}
+            //    className=""
+            //    renderItem={({item})=> <Todo item={item}/>}
+            //    keyExtractor={item => item.text}
+            // />
        //  </View>
       // </Layout>
    )
 }
 export default Home
+
+
+const Todo = ({item}) =>(
+   <View className="py-2 border-b">
+      <Text>
+         {item.text}
+      </Text>
+   </View>
+)
