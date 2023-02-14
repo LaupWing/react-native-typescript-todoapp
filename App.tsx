@@ -35,21 +35,19 @@ const App = () => {
    return (
       <View className="flex-1">
          <NavigationContainer>
-            <Stack.Navigator>
-               <Stack.Group
-                  screenOptions={{
-                     headerShown: false
-                  }}
-               >
-                  <Stack.Screen 
-                     name="Home" 
-                     component={Home}
-                  />
-                  <Stack.Screen 
-                     name="Login" 
-                     component={Login}
-                  />
-               </Stack.Group>
+            <Stack.Navigator
+               screenOptions={{
+                  headerShown: false
+               }}
+            >
+               <Stack.Screen 
+                  name="Home" 
+                  component={Home}
+               />
+               <Stack.Screen 
+                  name="Login" 
+                  component={Login}
+               />
             </Stack.Navigator>
          </NavigationContainer>
       </View>
