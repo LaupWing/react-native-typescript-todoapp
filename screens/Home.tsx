@@ -21,24 +21,24 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const [todos, setTodos] = useState(_todos)
 
+   {/* <View className="w-full bg-indigo-600 p-2">
+      <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
+   </View>
+   <View className="flex flex-row ">
+      <TextInput
+         placeholder="Add a new todo"
+         className="px-2 py-1 flex-1"
+      />
+      <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
+         <Text className="text-white uppercase font-bold">add</Text>
+      </TouchableOpacity>
+   </View> */}
    return (
       // <Layout>
-         <View className="bg-white mt-[10vh] rounded w-full flex-1 mb-4 border-[3px] border-indigo-600">
-            <View className="w-full bg-indigo-600 p-2">
-               <Text className="text-white uppercase font-bold text-2xl tracking-wider">todo app</Text>
-            </View>
-            <View className="flex flex-row ">
-               <TextInput
-                  placeholder="Add a new todo"
-                  className="px-2 py-1 flex-1"
-               />
-               <TouchableOpacity className="bg-indigo-500 px-4 items-center justify-center">
-                  <Text className="text-white uppercase font-bold">add</Text>
-               </TouchableOpacity>
-            </View>
+        // <View className="bg-white rounded w-full border-[3px] border-indigo-600">
             <FlatList
                data={todos}
-               className="overflow-y-auto"
+               className="h-full"
                renderItem={({item})=>
                   <View className="py-2 border-b">
                      <Text>
@@ -48,7 +48,7 @@ const Home = () => {
                }
                keyExtractor={item => item.text}
             />
-         </View>
+       //  </View>
       // </Layout>
    )
 }
