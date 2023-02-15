@@ -7,6 +7,7 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
 import { SafeAreaProvider } from "react-native-safe-area-context"
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -14,6 +15,7 @@ export type RootStackParamsList = {
 }
 
 const Stack = createNativeStackNavigator<RootStackParamsList>()
+const Tab = createBottomTabNavigator()
 
 const App = () => {
    const [initializing, setInitializing] = useState<boolean>(true)
@@ -42,9 +44,19 @@ const App = () => {
                }}
             >
                <Stack.Screen 
-                  name="Home" 
-                  component={Home}
-               />
+                  name="Home"
+               >
+                  {() => (
+                     <Tab.Navigator
+                        initialRouteName="A"
+                        tabBar={() => null}
+                        screenOptions={{ headerShown: false }}
+                     >
+                        <Tab.Screen name="A" component={Home}/>
+                        <Tab.Screen name="B" component={Home}/>
+                     </Tab.Navigator>
+                  )}
+               </Stack.Screen>
                <Stack.Screen 
                   name="Login" 
                   component={Login}
