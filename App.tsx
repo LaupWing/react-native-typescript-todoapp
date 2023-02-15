@@ -50,7 +50,7 @@ const App = () => {
                      <Tab.Navigator
                         initialRouteName="A"
                         tabBar={() => null}
-                        screenOptions={{ headerShown: false }}
+                        // screenOptions={{ headerShown: false }}
                      >
                         <Tab.Screen name="A" component={Home}/>
                         <Tab.Screen name="B" component={Home}/>
