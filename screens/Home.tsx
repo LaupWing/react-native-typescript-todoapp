@@ -23,7 +23,7 @@ const Home = () => {
    const [todos, setTodos] = useState(_todos)
    const [newTodo, setNewTodo] = useState("")
    const insets = useSafeAreaInsets()
-   console.log(insets)
+   console.log( "HOME", insets)
 
    const addNewTodo = () => {
       setTodos([...todos, {

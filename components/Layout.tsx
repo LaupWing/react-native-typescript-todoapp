@@ -1,11 +1,8 @@
 import { LinearGradient } from "expo-linear-gradient"
 import { FC, PropsWithChildren } from "react"
 import { SafeAreaView, View } from "react-native"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
 
 const Layout:FC<PropsWithChildren> = ({ children }) => {
-   // const insets = useSafeAreaInsets()
-   // console.log(insets)
    return (
       <LinearGradient 
          className="justify-center items-center flex flex-1" 
