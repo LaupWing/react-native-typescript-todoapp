@@ -12,7 +12,7 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 // import { todos as _todos } from "../dummyData.json"
 import { todos as _todos } from "../dummyDataLong.json"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { initialWindowMetrics, useSafeAreaInsets } from "react-native-safe-area-context"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -22,8 +22,9 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const [todos, setTodos] = useState(_todos)
    const [newTodo, setNewTodo] = useState("")
-   const insets = useSafeAreaInsets()
+   const insets = initialWindowMetrics.insets
    console.log("HOME", insets)
+   console.log()
 
    // const addNewTodo = () => {
    //    setTodos([

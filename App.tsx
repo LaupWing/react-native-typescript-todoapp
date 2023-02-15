@@ -6,7 +6,7 @@ import Login from "./screens/Login"
 import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
-import { SafeAreaProvider } from "react-native-safe-area-context"
+import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 export type RootStackParamsList = {
@@ -20,6 +20,7 @@ const Tab = createBottomTabNavigator()
 const App = () => {
    const [initializing, setInitializing] = useState<boolean>(true)
    const [user, setUser] = useState<FirebaseAuthTypes.User>(null)
+   
 
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
@@ -50,7 +51,7 @@ const App = () => {
                      <Tab.Navigator
                         initialRouteName="A"
                         tabBar={() => null}
-                        // screenOptions={{ headerShown: false }}
+                        screenOptions={{ headerShown: false }}
                      >
                         <Tab.Screen name="A" component={Home}/>
                         <Tab.Screen name="B" component={Home}/>
