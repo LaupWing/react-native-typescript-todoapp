@@ -6,6 +6,7 @@ import Login from "./screens/Login"
 import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
+import { SafeAreaProvider } from "react-native-safe-area-context"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -33,22 +34,24 @@ const App = () => {
    }, [])
 
    return (
-      <NavigationContainer>
-         <Stack.Navigator
-            screenOptions={{
-               headerShown: false
-            }}
-         >
-            <Stack.Screen 
-               name="Home" 
-               component={Home}
-            />
-            <Stack.Screen 
-               name="Login" 
-               component={Login}
-            />
-         </Stack.Navigator>
-      </NavigationContainer>
+      <SafeAreaProvider>
+         <NavigationContainer>
+            <Stack.Navigator
+               screenOptions={{
+                  headerShown: false
+               }}
+            >
+               <Stack.Screen 
+                  name="Home" 
+                  component={Home}
+               />
+               <Stack.Screen 
+                  name="Login" 
+                  component={Login}
+               />
+            </Stack.Navigator>
+         </NavigationContainer>
+      </SafeAreaProvider>
    )
 }
 
