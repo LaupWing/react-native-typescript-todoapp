@@ -26,15 +26,14 @@ const App = () => {
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
    })
 
-   useEffect(() => {
-      const subscriber = auth().onAuthStateChanged(user => {
+   useEffect(() => 
+      auth().onAuthStateChanged(user => {
          setUser(user)
          if(initializing){
             setInitializing(false)
          }
       })
-      return subscriber
-   }, [])
+   , [])
 
    if(initializing){
       return null
