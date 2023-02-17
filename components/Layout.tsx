@@ -1,29 +1,19 @@
 import { LinearGradient } from "expo-linear-gradient"
 import { FC, PropsWithChildren } from "react"
-import { SafeAreaView, View } from "react-native"
-import { initialWindowMetrics } from "react-native-safe-area-context"
+import { View } from "react-native"
 
 const Layout:FC<PropsWithChildren> = ({ children }) => {
-   const insets = initialWindowMetrics.insets
 
    return (
-      <View
-         className="flex-1"
-         style={{
-            paddingBottom: insets.bottom
-         }}
-      >
-         <View className="bg-red-600 flex-1">
-            {children}
-         </View>
-         {/* <LinearGradient 
-            className="justify-end items-end flex flex-1" 
+      <View className="flex-1">
+         <LinearGradient 
+            className="justify-start items-center flex flex-1" 
             colors={["#6366f1", "#a855f7", "#ec4899"]}
-         > */}
-            {/* <View className="px-6 w-full h-20">
+         >
+            <View className="px-6 w-full flex-1">
                {children}
-            </View> */}
-         {/* </LinearGradient> */}
+            </View>
+         </LinearGradient>
       </View>
    )
 }
