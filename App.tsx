@@ -47,11 +47,12 @@ const App = () => {
                screenOptions={{
                   headerShown: false
                }}
+               initialRouteName={user ? "Home": "Login"}
             >
-               <Stack.Screen 
+               {user && <Stack.Screen 
                   name="Home"
                   component={Home}
-               />
+               />}
                <Stack.Screen 
                   name="Login" 
                   component={Login}
