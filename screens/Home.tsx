@@ -9,7 +9,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome, MaterialIcons } from "@expo/vector-icons"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -44,6 +44,9 @@ const Home = () => {
                renderItem={({ item }) => (
                   <View className="flex-row items-center border-b border-gray-300 last:border-0">
                      <Text className="flex-1">{item.text}</Text>
+                     <View className="bg-orange-400 w-8 flex items-center justify-center aspect-square">
+                        <MaterialIcons color={"green"} name="edit" size={20}/>
+                     </View>
                      <View className="bg-orange-400 w-8 flex items-center justify-center aspect-square">
                         <FontAwesome color={"red"} name="trash" size={20}/>
                      </View>
