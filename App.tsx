@@ -19,8 +19,7 @@ const Tab = createBottomTabNavigator()
 
 const App = () => {
    const [initializing, setInitializing] = useState<boolean>(true)
-   const [user, setUser] = useState<FirebaseAuthTypes.User>(null)
-   
+   const [user, setUser] = useState<FirebaseAuthTypes.User>(null)  
 
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"

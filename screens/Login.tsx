@@ -3,7 +3,8 @@ import { useNavigation } from "@react-navigation/native"
 import { RootStackParamsList } from "../App"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import Layout from "../components/Layout"
-import { GoogleSigninButton } from "@react-native-google-signin/google-signin"
+import { GoogleSignin, GoogleSigninButton } from "@react-native-google-signin/google-signin"
+import auth from "@react-native-firebase/auth"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -11,14 +12,26 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Login = () => {
+   GoogleSignin.configure({
+      webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
+   })
+
+   const onGoogleButtonPress = async () => {
+      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
+      const { idToken } = await GoogleSignin.signIn()
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken)
+
+      return auth().signInWithCredential(googleCredential)
+   }
+
    return (
       <Layout>
          <Text>Login</Text>
          <GoogleSigninButton
-            style={{ width: 300, height: 48 }}
+            style={{ width: 320, height: 48 }}
             size={GoogleSigninButton.Size.Wide}
             color={GoogleSigninButton.Color.Dark}
-            onPress={() => {}}
+            onPress={onGoogleButtonPress}
          />
       </Layout>
    )
