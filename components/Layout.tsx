@@ -13,14 +13,17 @@ const Layout:FC<PropsWithChildren> = ({ children }) => {
             paddingBottom: insets.bottom
          }}
       >
-         <LinearGradient 
-            className="justify-center items-center flex flex-1" 
+         <View>
+
+         </View>
+         {/* <LinearGradient 
+            className="justify-end items-end flex flex-1" 
             colors={["#6366f1", "#a855f7", "#ec4899"]}
-         >
-            <View className="px-6 flex-1 w-full">
+         > */}
+            {/* <View className="px-6 w-full h-20">
                {children}
-            </View>
-         </LinearGradient>
+            </View> */}
+         {/* </LinearGradient> */}
       </View>
    )
 }
