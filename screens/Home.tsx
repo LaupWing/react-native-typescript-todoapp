@@ -43,12 +43,12 @@ const Home = () => {
                data={todos}
                renderItem={({ item }) => (
                   <View className="flex-row items-center border-b border-gray-300 last:border-0">
-                     <Text className="flex-1">{item.text}</Text>
-                     <View className="bg-orange-400 w-8 flex items-center justify-center aspect-square">
-                        <MaterialIcons color={"green"} name="edit" size={20}/>
+                     <Text className="flex-1 px-2">{item.text}</Text>
+                     <View className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+                        <MaterialIcons color={"green"} name="edit" size={24}/>
                      </View>
-                     <View className="bg-orange-400 w-8 flex items-center justify-center aspect-square">
-                        <FontAwesome color={"red"} name="trash" size={20}/>
+                     <View className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+                        <FontAwesome color={"red"} name="trash" size={24}/>
                      </View>
                   </View>
                )}
