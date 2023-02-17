@@ -31,35 +31,33 @@ const Home = () => {
 
    return (
       <Layout>
-         <View className="flex-1 w-full">
-            <View className="bg-white max-h-full rounded w-full border-[3px] border-indigo-600">
-               <View className="w-full bg-indigo-600 p-2">
-                  <Text className="text-white uppercase font-bold text-2xl tracking-wider">
-                     todo app
-                  </Text>
-               </View>
-               <FlatList
-                  data={todos}
-                  renderItem={({ item }) => (
-                     <View className="py-2 border-b border-gray-300 last:border-0">
-                        <Text>{item.text}</Text>
-                     </View>
-                  )}
-                  keyExtractor={(item) => item.text}
+         <View className="bg-white max-h-full rounded w-full border-[3px] border-indigo-600">
+            <View className="w-full bg-indigo-600 p-2">
+               <Text className="text-white uppercase font-bold text-2xl tracking-wider">
+                  todo app
+               </Text>
+            </View>
+            <FlatList
+               data={todos}
+               renderItem={({ item }) => (
+                  <View className="py-2 border-b border-gray-300 last:border-0">
+                     <Text>{item.text}</Text>
+                  </View>
+               )}
+               keyExtractor={(item) => item.text}
+            />
+            <View className="flex flex-row border-t border-gray-300">
+               <TextInput
+                  placeholder="Add a new todo"
+                  className="px-2 py-1 flex-1"
+                  onChangeText={setNewTodo}
                />
-               <View className="flex flex-row border-t border-gray-300">
-                  <TextInput
-                     placeholder="Add a new todo"
-                     className="px-2 py-1 flex-1"
-                     onChangeText={setNewTodo}
-                  />
-                  <TouchableOpacity
-                     className="bg-indigo-500 px-4 items-center justify-center"
-                     onPress={addNewTodo}
-                  >
-                     <Text className="text-white uppercase font-bold">add</Text>
-                  </TouchableOpacity>
-               </View>
+               <TouchableOpacity
+                  className="bg-indigo-500 px-4 items-center justify-center"
+                  onPress={addNewTodo}
+               >
+                  <Text className="text-white uppercase font-bold">add</Text>
+               </TouchableOpacity>
             </View>
          </View>
       </Layout>
