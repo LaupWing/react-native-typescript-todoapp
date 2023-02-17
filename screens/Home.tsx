@@ -27,12 +27,12 @@ const Home = () => {
             finished: false,
          },
       ])
-      // setNewTodo("")
+      setNewTodo("")
    }
 
    return (
       <Layout>
-         <View className="bg-white flex-1 rounded w-full border-[3px] border-indigo-600">
+         <View className="bg-white max-h-full rounded w-full border-[3px] border-indigo-600">
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">
                   todo app
@@ -41,7 +41,7 @@ const Home = () => {
             <FlatList
                data={todos}
                renderItem={({ item }) => (
-                  <View className="py-2 border-b border-gray-300 last:border-0">
+                  <View className="py-2 px-1 border-b border-gray-300 last:border-0">
                      <Text>{item.text}</Text>
                   </View>
                )}
@@ -52,6 +52,7 @@ const Home = () => {
                   placeholder="Add a new todo"
                   className="px-2 py-1 flex-1"
                   onChangeText={setNewTodo}
+                  value={newTodo}
                />
                <TouchableOpacity
                   className="bg-indigo-500 px-4 items-center justify-center"
