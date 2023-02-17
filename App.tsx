@@ -46,18 +46,8 @@ const App = () => {
             >
                <Stack.Screen 
                   name="Home"
-               >
-                  {() => (
-                     <Tab.Navigator
-                        initialRouteName="A"
-                        tabBar={() => null}
-                        screenOptions={{ headerShown: false }}
-                     >
-                        <Tab.Screen name="A" component={Home}/>
-                        <Tab.Screen name="B" component={Home}/>
-                     </Tab.Navigator>
-                  )}
-               </Stack.Screen>
+                  component={Home}
+               />
                <Stack.Screen 
                   name="Login" 
                   component={Login}
