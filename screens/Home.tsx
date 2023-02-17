@@ -3,14 +3,12 @@ import {
    Text,
    TextInput,
    FlatList,
-   TouchableOpacity,
-   SafeAreaView,
+   TouchableOpacity
 } from "react-native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
-// import { todos as _todos } from "../dummyData.json"
 import { todos as _todos } from "../dummyDataLong.json"
 import { initialWindowMetrics, useSafeAreaInsets } from "react-native-safe-area-context"
 
@@ -23,18 +21,16 @@ const Home = () => {
    const [todos, setTodos] = useState(_todos)
    const [newTodo, setNewTodo] = useState("")
    const insets = initialWindowMetrics.insets
-   console.log("HOME", insets)
-   console.log()
 
-   // const addNewTodo = () => {
-   //    setTodos([
-   //       ...todos,
-   //       {
-   //          text: newTodo,
-   //          finished: false,
-   //       },
-   //    ])
-   // }
+   const addNewTodo = () => {
+      setTodos([
+         ...todos,
+         {
+            text: newTodo,
+            finished: false,
+         },
+      ])
+   }
 
    return (
       <Layout>
