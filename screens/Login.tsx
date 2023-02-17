@@ -23,7 +23,8 @@ const Login = () => {
       const googleCredential = auth.GoogleAuthProvider.credential(idToken)
 
       auth().signInWithCredential(googleCredential)
-      console.log(auth().currentUser)
+      const id = auth().currentUser.uid
+      console.log(id)
    }
    
 
