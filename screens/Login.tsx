@@ -15,6 +15,7 @@ const Login = () => {
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
    })
+   const navigation = useNavigation()
 
    const onGoogleButtonPress = async () => {
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
@@ -23,6 +24,7 @@ const Login = () => {
 
       return auth().signInWithCredential(googleCredential)
    }
+   
 
    return (
       <Layout>
