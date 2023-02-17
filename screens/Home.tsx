@@ -33,7 +33,7 @@ const Home = () => {
    }
    return (
       <Layout>
-         <View className="bg-white rounded w-full border-[3px] border-indigo-600">
+         <View className="bg-white flex-1 rounded w-full border-[3px] border-indigo-600">
             <View className="w-full bg-indigo-600 p-2">
                <Text className="text-white uppercase font-bold text-2xl tracking-wider">
                   todo app
