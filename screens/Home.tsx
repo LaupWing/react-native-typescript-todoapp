@@ -9,7 +9,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
 import { useState } from "react"
-import { FontAwesome, MaterialIcons } from "@expo/vector-icons"
+import Todo from "../components/Todo"
+import { TodoType } from "../types"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -17,7 +18,7 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Home = () => {
-   const [todos, setTodos] = useState([])
+   const [todos, setTodos] = useState<TodoType[]>([])
    const [newTodo, setNewTodo] = useState("")
 
    const addNewTodo = () => {
@@ -42,15 +43,7 @@ const Home = () => {
             <FlatList
                data={todos}
                renderItem={({ item }) => (
-                  <View className="flex-row items-center border-b border-gray-300 last:border-0">
-                     <Text className="flex-1 px-2">{item.text}</Text>
-                     <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-                        <MaterialIcons color={"green"} name="edit" size={24}/>
-                     </TouchableOpacity>
-                     <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-                        <FontAwesome color={"red"} name="trash" size={24}/>
-                     </TouchableOpacity>
-                  </View>
+                  <Todo item={item}/>
                )}
                keyExtractor={(item) => item.text}
             />
