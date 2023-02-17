@@ -22,7 +22,8 @@ const Login = () => {
       const { idToken } = await GoogleSignin.signIn()
       const googleCredential = auth.GoogleAuthProvider.credential(idToken)
 
-      return auth().signInWithCredential(googleCredential)
+      auth().signInWithCredential(googleCredential)
+      console.log(auth().currentUser)
    }
    
 
