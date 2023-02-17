@@ -7,12 +7,10 @@ const Layout:FC<PropsWithChildren> = ({ children }) => {
    return (
       <View className="flex-1">
          <LinearGradient 
-            className="justify-start items-center flex flex-1" 
+            className="justify-start items-center px-6 py-8 flex flex-1" 
             colors={["#6366f1", "#a855f7", "#ec4899"]}
          >
-            <View className="px-6 w-full flex-1">
-               {children}
-            </View>
+            {children}
          </LinearGradient>
       </View>
    )
