@@ -29,6 +29,7 @@ const Home = () => {
          },
       ])
    }
+
    return (
       <Layout>
          <View className="bg-white flex-1 rounded w-full border-[3px] border-indigo-600">
@@ -54,7 +55,7 @@ const Home = () => {
                />
                <TouchableOpacity
                   className="bg-indigo-500 px-4 items-center justify-center"
-                  // onPress={addNewTodo}
+                  onPress={addNewTodo}
                >
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>
