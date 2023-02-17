@@ -11,6 +11,7 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
+import firestore from "@react-native-firebase/firestore"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -20,6 +21,10 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const [todos, setTodos] = useState<TodoType[]>([])
    const [newTodo, setNewTodo] = useState("")
+   const test = async () => {
+      console.log(await firestore().collection("users").doc("A").get())
+   }
+   test()
 
    const addNewTodo = () => {
       setTodos([
