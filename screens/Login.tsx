@@ -11,7 +11,6 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Login = () => {
-   const navigation = useNavigation<NavigationProp>()
    return (
       <Layout>
          <Text>Login</Text>
