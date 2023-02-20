@@ -48,6 +48,19 @@ export const getTodos =
 export const postTodo = 
    (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
+      const newTodo = await firestore()
+         .collection("users")
+         .doc(id)
+         .collection("todos")
+         .add(todo)
+      dispatch(addTodo(todo))
+      
+      console.log(newTodo.id)
+   }
+
+export const deleteTodo = 
+   (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
+      const { id } = getState().user
       dispatch(addTodo(todo))
       await firestore()
          .collection("users")
