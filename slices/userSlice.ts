@@ -48,13 +48,13 @@ export const getTodos =
 export const postTodo = 
    (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
+      dispatch(addTodo(todo))
       await firestore()
          .collection("users")
          .doc(id)
          .collection("todos")
          .doc()
          .set(todo)
-      dispatch(addTodo(todo))
    }
 
 export const { 
