@@ -28,7 +28,8 @@ const Home = () => {
 
    useEffect(() => {
       const initialize = async () =>{
-         dispatch(getTodos())
+         await dispatch(getTodos())
+         setLoading(false)
       }
       initialize()
    }, [])
@@ -60,13 +61,13 @@ const Home = () => {
                   todo app
                </Text>
             </View>
-            {/* <FlatList
+            <FlatList
                data={todos}
                renderItem={({ item }) => (
                   <Todo item={item}/>
                )}
                keyExtractor={(item) => item.text}
-            /> */}
+            />
             <View className="flex flex-row border-t border-gray-300">
                <TextInput
                   placeholder="Add a new todo"
