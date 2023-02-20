@@ -11,7 +11,7 @@ import Layout from "../components/Layout"
 import { useEffect, useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
-import { useAppDispatch } from "../redux/hooks"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { getTodos, postTodo } from "../slices/userSlice"
 import { ActivityIndicator } from "react-native"
 
@@ -21,10 +21,10 @@ export type NavigationProp = NativeStackNavigationProp<
 >
 
 const Home = () => {
-   const [todos, setTodos] = useState<TodoType[]>([])
+   const { todos } = useAppSelector(state => state.user)
    const dispatch = useAppDispatch()
    const [newTodo, setNewTodo] = useState("")
-   const [loading, setLoading] = useState(false)
+   const [loading, setLoading] = useState(true)
 
    useEffect(() => {
       const initialize = async () =>{
@@ -34,13 +34,6 @@ const Home = () => {
    }, [])
    
    const submitTodo = () => {
-      setTodos([
-         ...todos,
-         {
-            text: newTodo,
-            finished: false,
-         },
-      ])
       setNewTodo("")
       dispatch(postTodo({
          text: newTodo,
@@ -67,13 +60,13 @@ const Home = () => {
                   todo app
                </Text>
             </View>
-            <FlatList
+            {/* <FlatList
                data={todos}
                renderItem={({ item }) => (
                   <Todo item={item}/>
                )}
                keyExtractor={(item) => item.text}
-            />
+            /> */}
             <View className="flex flex-row border-t border-gray-300">
                <TextInput
                   placeholder="Add a new todo"
