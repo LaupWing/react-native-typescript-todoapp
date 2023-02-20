@@ -23,6 +23,20 @@ const Todo:FC<{item: TodoType}> = ({
             ) : (
                <Text className="flex-1 px-2">{item.text}</Text>
          )}
+         <NonEditButtons id={item.id}/>
+      </View>
+   )
+}
+export default Todo
+
+
+const NonEditButtons = ({id}) => {
+   const dispatch = useAppDispatch()
+   const onPressDelete = () => {
+      dispatch(removeTodo(id))
+   }
+   return (
+      <View className="flex-row">
          <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
             <MaterialIcons color={"green"} name="edit" size={24}/>
          </TouchableOpacity>
@@ -35,4 +49,3 @@ const Todo:FC<{item: TodoType}> = ({
       </View>
    )
 }
-export default Todo
