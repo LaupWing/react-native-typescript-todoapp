@@ -11,6 +11,7 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
+import { useAppSelector } from "../redux/hooks"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,

@@ -1,10 +1,20 @@
 import { LinearGradient } from "expo-linear-gradient"
-import { FC, PropsWithChildren } from "react"
+import { FC, PropsWithChildren, useEffect } from "react"
 import { View } from "react-native"
 import auth from "@react-native-firebase/auth"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
+import { setUserId } from "../slices/userSlice"
 
 const Layout:FC<PropsWithChildren> = ({ children }) => {
-   console.log(auth().currentUser.displayName)
+   const dispatch = useAppDispatch()
+   const { id } = useAppSelector(state => state.user)
+
+   useEffect(() => {
+      if(!id && auth().currentUser){
+         dispatch(setUserId(auth().currentUser.uid))
+      }
+   }, [])
+   
    return (
       <View className="flex-1">
          <LinearGradient 
