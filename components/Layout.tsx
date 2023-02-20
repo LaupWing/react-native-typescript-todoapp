@@ -14,7 +14,7 @@ const Layout:FC<PropsWithChildren> = ({ children }) => {
          dispatch(setUserId(auth().currentUser.uid))
       }
    }, [])
-   
+
    return (
       <View className="flex-1">
          <LinearGradient 

@@ -8,11 +8,11 @@ import {
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { RootStackParamsList } from "../App"
 import Layout from "../components/Layout"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
 import { useAppDispatch } from "../redux/hooks"
-import { postTodo } from "../slices/userSlice"
+import { getTodos, postTodo } from "../slices/userSlice"
 import { ActivityIndicator } from "react-native"
 
 export type NavigationProp = NativeStackNavigationProp<
@@ -26,6 +26,13 @@ const Home = () => {
    const [newTodo, setNewTodo] = useState("")
    const [loading, setLoading] = useState(false)
 
+   useEffect(() => {
+      const initialize = async () =>{
+         dispatch(getTodos())
+      }
+      initialize()
+   }, [])
+   
    const submitTodo = () => {
       setTodos([
          ...todos,

@@ -27,8 +27,16 @@ export const userSlice = createSlice({
 })
 
 export const getTodos = 
-   () => async () => {
+   () => async (dispatch: Dispatch, getState: typeof store.getState) => {
+      const { id } = getState().user
+      console.log(id)
+      const todos = await firestore()
+         .collection("users")
+         .doc(id)
+         .collection("todos")
+         .get()
       
+      console.log(todos.docs)
    }
 
 export const postTodo = 
