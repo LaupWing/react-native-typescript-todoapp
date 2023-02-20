@@ -19,6 +19,9 @@ export const userSlice = createSlice({
    reducers: {
       setUserId(state, action: PayloadAction<string>){
          state.id = action.payload
+      },
+      addTodo(state, action: PayloadAction<TodoType>){
+         state.todos = [...state.todos, action.payload]
       }
    },
 })
@@ -29,20 +32,20 @@ export const getTodos =
    }
 
 export const postTodo = 
-   (todo: TodoType) => async (dipatch: Dispatch, getState: typeof store.getState) => {
+   (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      const newTodo = await firestore()
+      await firestore()
          .collection("users")
          .doc(id)
          .collection("todos")
          .doc()
          .set(todo)
-
-      console.log(newTodo)
+      dispatch(addTodo(todo))
    }
 
 export const { 
-   setUserId
+   setUserId,
+   addTodo
 } = userSlice.actions
 
 

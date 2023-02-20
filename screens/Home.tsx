@@ -24,7 +24,7 @@ const Home = () => {
    const [todos, setTodos] = useState<TodoType[]>([])
    const dispatch = useAppDispatch()
    const [newTodo, setNewTodo] = useState("")
-   const [loading, setLoading] = useState(true)
+   const [loading, setLoading] = useState(false)
 
    const submitTodo = () => {
       setTodos([
