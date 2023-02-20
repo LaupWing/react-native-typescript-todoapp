@@ -8,6 +8,8 @@ import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
 import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { Provider } from "react-redux"
+import { store } from "./redux/store"
 
 export type RootStackParamsList = {
    Home: undefined
@@ -39,26 +41,28 @@ const App = () => {
    }
 
    return (
-      <SafeAreaProvider>
-         <NavigationContainer>
-            <Stack.Navigator
-               screenOptions={{
-                  headerShown: false
-               }}
-               // initialRouteName={user ? "Home": "Login"}
-               initialRouteName={"Login"}
-            >
-               {user && <Stack.Screen 
-                  name="Home"
-                  component={Home}
-               />}
-               <Stack.Screen 
-                  name="Login" 
-                  component={Login}
-               />
-            </Stack.Navigator>
-         </NavigationContainer>
-      </SafeAreaProvider>
+      <Provider store={store}>
+         <SafeAreaProvider>
+            <NavigationContainer>
+               <Stack.Navigator
+                  screenOptions={{
+                     headerShown: false
+                  }}
+                  // initialRouteName={user ? "Home": "Login"}
+                  initialRouteName={"Login"}
+               >
+                  {user && <Stack.Screen 
+                     name="Home"
+                     component={Home}
+                  />}
+                  <Stack.Screen 
+                     name="Login" 
+                     component={Login}
+                  />
+               </Stack.Navigator>
+            </NavigationContainer>
+         </SafeAreaProvider>
+      </Provider>
    )
 }
 
