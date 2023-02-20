@@ -23,6 +23,9 @@ export const userSlice = createSlice({
       addTodo(state, action: PayloadAction<TodoType>){
          state.todos = [...state.todos, action.payload]
       },
+      removeTodo(state, action: PayloadAction<string>){
+         state.todos = [...state.todos].filter(todo => todo.id !== action.payload)
+      },
       setTodos(state, action: PayloadAction<TodoType[]>){
          state.todos = action.payload
       }
@@ -62,7 +65,7 @@ export const postTodo =
 export const deleteTodo = 
    (todoId: string) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      
+      removeTodo(todoId)
       await firestore()
          .collection("users")
          .doc(id)
@@ -74,7 +77,8 @@ export const deleteTodo =
 export const { 
    setUserId,
    addTodo,
-   setTodos
+   setTodos,
+   removeTodo
 } = userSlice.actions
 
 
