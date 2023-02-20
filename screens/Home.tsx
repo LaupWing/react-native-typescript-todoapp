@@ -13,6 +13,7 @@ import Todo from "../components/Todo"
 import { TodoType } from "../types"
 import { useAppDispatch } from "../redux/hooks"
 import { postTodo } from "../slices/userSlice"
+import { ActivityIndicator } from "react-native"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -23,6 +24,7 @@ const Home = () => {
    const [todos, setTodos] = useState<TodoType[]>([])
    const dispatch = useAppDispatch()
    const [newTodo, setNewTodo] = useState("")
+   const [loading, setLoading] = useState(true)
 
    const submitTodo = () => {
       setTodos([
@@ -37,6 +39,17 @@ const Home = () => {
          text: newTodo,
          finished: false,
       }))
+   }
+   if(loading){
+      return (
+         <Layout>
+            <ActivityIndicator 
+               className="m-auto" 
+               size={"large"} 
+               color="white"
+            />
+         </Layout>
+      )
    }
 
    return (
