@@ -5,6 +5,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import Layout from "../components/Layout"
 import { GoogleSignin, GoogleSigninButton } from "@react-native-google-signin/google-signin"
 import auth from "@react-native-firebase/auth"
+import { useAppDispatch } from "../redux/hooks"
+import { setUserId } from "../slices/userSlice"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -15,7 +17,8 @@ const Login = () => {
    GoogleSignin.configure({
       webClientId: "1088828136827-qu7hd60qceh11p586okglsam3g62ess1.apps.googleusercontent.com"
    })
-   const navigation = useNavigation()
+   const navigation = useNavigation<NavigationProp>()
+   const dispatch = useAppDispatch()
 
    const onGoogleButtonPress = async () => {
       await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true })
@@ -24,7 +27,8 @@ const Login = () => {
 
       auth().signInWithCredential(googleCredential)
       const id = auth().currentUser.uid
-      console.log(id)
+      dispatch(setUserId(id))
+      navigation.navigate("Home")
    }
    
 
