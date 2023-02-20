@@ -66,6 +66,7 @@ export const deleteTodo =
    (todoId: string) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
       removeTodo(todoId)
+      console.log(id)
       await firestore()
          .collection("users")
          .doc(id)

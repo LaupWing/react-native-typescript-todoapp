@@ -3,17 +3,13 @@ import { View, Text, TouchableOpacity, TextInput } from "react-native"
 import { FontAwesome, MaterialIcons } from "@expo/vector-icons"
 import { TodoType } from "../types"
 import { useAppDispatch } from "../redux/hooks"
-import { removeTodo } from "../slices/userSlice"
+import { deleteTodo } from "../slices/userSlice"
 
 const Todo:FC<{item: TodoType}> = ({ 
    item
 }) => {
    const dispatch = useAppDispatch()
-   const [edit, setEdit] = useState(true)
-
-   const onPressDelete = () => {
-      dispatch(removeTodo(item.id))
-   }
+   const [edit, setEdit] = useState(false)
 
    return (
       <View className="flex-row items-center border-b border-gray-300 last:border-0">
@@ -33,19 +29,32 @@ export default Todo
 const NonEditButtons = ({id}) => {
    const dispatch = useAppDispatch()
    const onPressDelete = () => {
-      dispatch(removeTodo(id))
+      dispatch(deleteTodo(id))
    }
    return (
       <View className="flex-row">
-         <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-            <MaterialIcons color={"green"} name="edit" size={24}/>
-         </TouchableOpacity>
-         <TouchableOpacity 
-            className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
-            onPress={onPressDelete}
-         >
-            <FontAwesome color={"red"} name="trash" size={24}/>
-         </TouchableOpacity>
+         <View className="flex-row">
+            <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+               <MaterialIcons color={"green"} name="edit" size={24}/>
+            </TouchableOpacity>
+            <TouchableOpacity 
+               className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
+               onPress={onPressDelete}
+            >
+               <FontAwesome color={"red"} name="trash" size={24}/>
+            </TouchableOpacity>
+         </View>
+         <View className="flex-row">
+            <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+                  <MaterialIcons color={"green"} name="edit" size={24}/>
+               </TouchableOpacity>
+            <TouchableOpacity 
+               className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
+               onPress={onPressDelete}
+            >
+               <FontAwesome color={"red"} name="trash" size={24}/>
+            </TouchableOpacity>
+         </View>
       </View>
    )
 }
