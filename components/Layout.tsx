@@ -1,9 +1,10 @@
 import { LinearGradient } from "expo-linear-gradient"
 import { FC, PropsWithChildren } from "react"
 import { View } from "react-native"
+import auth from "@react-native-firebase/auth"
 
 const Layout:FC<PropsWithChildren> = ({ children }) => {
-
+   console.log(auth().currentUser.displayName)
    return (
       <View className="flex-1">
          <LinearGradient 

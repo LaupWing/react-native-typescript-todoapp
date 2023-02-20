@@ -48,8 +48,7 @@ const App = () => {
                   screenOptions={{
                      headerShown: false
                   }}
-                  // initialRouteName={user ? "Home": "Login"}
-                  initialRouteName={"Login"}
+                  initialRouteName={user ? "Home": "Login"}
                >
                   {user && <Stack.Screen 
                      name="Home"

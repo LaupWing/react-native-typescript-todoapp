@@ -11,7 +11,6 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
-import { useAppSelector } from "../redux/hooks"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -21,8 +20,6 @@ export type NavigationProp = NativeStackNavigationProp<
 const Home = () => {
    const [todos, setTodos] = useState<TodoType[]>([])
    const [newTodo, setNewTodo] = useState("")
-   const test = useAppSelector(state => state)
-   console.log(test)
 
    const addNewTodo = () => {
       setTodos([
