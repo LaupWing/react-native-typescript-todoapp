@@ -40,7 +40,8 @@ export const getTodos =
          .get()
       dispatch(setTodos(
          todos.docs.map(todo => ({
-            ...todo.data()
+            ...todo.data(),
+            id: todo.id
          })) as TodoType[]
       ))
    }
@@ -48,14 +49,14 @@ export const getTodos =
 export const postTodo = 
    (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      const newTodo = await firestore()
+      const ref = firestore()
          .collection("users")
          .doc(id)
          .collection("todos")
-         .add(todo)
-      dispatch(addTodo(todo))
+         .doc()
+      dispatch(addTodo({...todo, id: ref.id}))
       
-      console.log(newTodo.id)
+      ref.set(todo)
    }
 
 export const deleteTodo = 
