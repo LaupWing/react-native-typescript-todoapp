@@ -11,7 +11,8 @@ import Layout from "../components/Layout"
 import { useState } from "react"
 import Todo from "../components/Todo"
 import { TodoType } from "../types"
-import { useAppSelector } from "../redux/hooks"
+import { useAppDispatch } from "../redux/hooks"
+import { postTodo } from "../slices/userSlice"
 
 export type NavigationProp = NativeStackNavigationProp<
    RootStackParamsList,
@@ -20,9 +21,10 @@ export type NavigationProp = NativeStackNavigationProp<
 
 const Home = () => {
    const [todos, setTodos] = useState<TodoType[]>([])
+   const dispatch = useAppDispatch()
    const [newTodo, setNewTodo] = useState("")
 
-   const addNewTodo = () => {
+   const submitTodo = () => {
       setTodos([
          ...todos,
          {
@@ -31,6 +33,10 @@ const Home = () => {
          },
       ])
       setNewTodo("")
+      dispatch(postTodo({
+         text: newTodo,
+         finished: false,
+      }))
    }
 
    return (
@@ -57,7 +63,7 @@ const Home = () => {
                />
                <TouchableOpacity
                   className="bg-indigo-500 px-4 items-center justify-center"
-                  onPress={addNewTodo}
+                  onPress={submitTodo}
                >
                   <Text className="text-white uppercase font-bold">add</Text>
                </TouchableOpacity>

@@ -28,7 +28,7 @@ export const getTodos =
       
    }
 
-export const addTodo = 
+export const postTodo = 
    (todo: TodoType) => async (dipatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
       const newTodo = await firestore()
