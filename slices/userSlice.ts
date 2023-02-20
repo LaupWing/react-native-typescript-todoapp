@@ -22,6 +22,9 @@ export const userSlice = createSlice({
       },
       addTodo(state, action: PayloadAction<TodoType>){
          state.todos = [...state.todos, action.payload]
+      },
+      setTodos(state, action: PayloadAction<TodoType[]>){
+         state.todos = action.payload
       }
    },
 })
@@ -29,14 +32,17 @@ export const userSlice = createSlice({
 export const getTodos = 
    () => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      console.log(id)
+      
       const todos = await firestore()
          .collection("users")
          .doc(id)
          .collection("todos")
          .get()
-      
-      console.log(todos.docs)
+      dispatch(setTodos(
+         todos.docs.map(todo => ({
+            ...todo.data()
+         })) as TodoType[]
+      ))
    }
 
 export const postTodo = 
@@ -53,7 +59,8 @@ export const postTodo =
 
 export const { 
    setUserId,
-   addTodo
+   addTodo,
+   setTodos
 } = userSlice.actions
 
 
