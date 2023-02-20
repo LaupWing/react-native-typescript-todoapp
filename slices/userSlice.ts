@@ -60,15 +60,15 @@ export const postTodo =
    }
 
 export const deleteTodo = 
-   (todo: TodoType) => async (dispatch: Dispatch, getState: typeof store.getState) => {
+   (todoId: string) => async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      dispatch(addTodo(todo))
+      
       await firestore()
          .collection("users")
          .doc(id)
          .collection("todos")
-         .doc()
-         .set(todo)
+         .doc(todoId)
+         .delete()
    }
 
 export const { 
