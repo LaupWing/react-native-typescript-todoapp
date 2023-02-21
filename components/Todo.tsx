@@ -32,8 +32,8 @@ const NonEditButtons = ({id}) => {
       dispatch(deleteTodo(id))
    }
    return (
-      <View className="flex-row">
-         <View className="flex-row">
+      <View className="flex-row transform translate-x-full">
+         <View className="flex-row transform translate-x-full">
             <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
                <MaterialIcons color={"green"} name="edit" size={24}/>
             </TouchableOpacity>
