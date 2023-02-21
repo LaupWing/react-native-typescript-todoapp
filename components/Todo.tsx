@@ -9,12 +9,17 @@ const Todo:FC<{item: TodoType}> = ({
    item
 }) => {
    const [edit, setEdit] = useState(false)
+   const [editText, setEditText] = useState(item.text)
 
    return (
       <View className="flex-row items-center border-b border-gray-300 last:border-0">
          {edit 
             ? (
-               <TextInput value={item.text} className="bg-gray-100 flex-1 mx-1 px-2 rounded" />
+               <TextInput 
+                  value={editText} 
+                  className="bg-gray-100 flex-1 mx-1 px-2 rounded" 
+                  onChangeText={setEditText}
+               />
             ) : (
                <Text className="flex-1 px-2">{item.text}</Text>
          )}
@@ -32,7 +37,7 @@ const Buttons = ({id, edit, setEdit}) => {
    }
    return (
       <View className="flex-row">
-         {edit ? (
+         {!edit ? (
             <View className="flex-row">
                <TouchableOpacity 
                   className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
@@ -49,14 +54,14 @@ const Buttons = ({id, edit, setEdit}) => {
             </View>
          ) :(
             <View className="flex-row">
-               <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-                  <FontAwesome color={"green"} name="check" size={24}/>
-               </TouchableOpacity>
                <TouchableOpacity 
                   className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
                   onPress={() => setEdit(false)}
                >
                   <FontAwesome color={"red"} name="close" size={24}/>
+               </TouchableOpacity>
+               <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+                  <FontAwesome color={"green"} name="check" size={24}/>
                </TouchableOpacity>
             </View>
          )}
