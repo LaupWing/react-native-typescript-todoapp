@@ -6,7 +6,6 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin"
 import { useEffect, useState } from "react"
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth"
 import { SafeAreaProvider } from "react-native-safe-area-context"
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { Provider } from "react-redux"
 import { store } from "./redux/store"
 
@@ -16,7 +15,6 @@ export type RootStackParamsList = {
 }
 
 const Stack = createNativeStackNavigator<RootStackParamsList>()
-const Tab = createBottomTabNavigator()
 
 const App = () => {
    const [initializing, setInitializing] = useState<boolean>(true)
