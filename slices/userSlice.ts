@@ -28,7 +28,14 @@ export const userSlice = createSlice({
       },
       setTodos(state, action: PayloadAction<TodoType[]>){
          state.todos = action.payload
-      }
+      },
+      updateTodos(state, action: PayloadAction<{id: string, updatedText: string}>){
+         const {id, updatedText} = action.payload
+         state.todos = [...state.todos].map(x => x.id === id ? ({
+            ...x,
+            text: updatedText
+         }) : x)
+      },
    },
 })
 
@@ -75,7 +82,7 @@ export const deleteTodo =
          .delete()
    }
 
-export const updateTodo = 
+export const patchTodo = 
    (todoId: string, updatedText: string) => 
    async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
