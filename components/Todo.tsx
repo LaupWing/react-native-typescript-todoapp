@@ -46,13 +46,13 @@ const NonEditButtons = ({id}) => {
          </View>
          <View className="flex-row">
             <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-                  <MaterialIcons color={"green"} name="edit" size={24}/>
-               </TouchableOpacity>
+               <FontAwesome color={"green"} name="check" size={24}/>
+            </TouchableOpacity>
             <TouchableOpacity 
                className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
                onPress={onPressDelete}
             >
-               <FontAwesome color={"red"} name="trash" size={24}/>
+               <FontAwesome color={"red"} name="close" size={24}/>
             </TouchableOpacity>
          </View>
       </View>
