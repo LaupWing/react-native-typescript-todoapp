@@ -86,7 +86,7 @@ export const patchTodo =
    (todoId: string, updatedText: string) => 
    async (dispatch: Dispatch, getState: typeof store.getState) => {
       const { id } = getState().user
-      removeTodo(todoId)
+      dispatch(updateTodos({id: todoId, updatedText}))
 
       await firestore()
          .collection("users")
@@ -102,7 +102,8 @@ export const {
    setUserId,
    addTodo,
    setTodos,
-   removeTodo
+   removeTodo,
+   updateTodos
 } = userSlice.actions
 
 
