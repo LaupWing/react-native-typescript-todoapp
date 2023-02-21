@@ -31,32 +31,35 @@ const Buttons = ({id, edit, setEdit}) => {
       dispatch(deleteTodo(id))
    }
    return (
-      <View className="flex-row w-20">
-         <View className={`flex-row ${!edit ? "translate-x-0" : "translate-x-20"}`}>
-            <TouchableOpacity 
-               className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
-               onPress={() => setEdit(true)}
-            >
-               <MaterialIcons color={"green"} name="edit" size={24}/>
-            </TouchableOpacity>
-            <TouchableOpacity 
-               className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
-               onPress={onPressDelete}
-            >
-               <FontAwesome color={"red"} name="trash" size={24}/>
-            </TouchableOpacity>
-         </View>
-         <View className={`flex-row ${edit ? "-translate-x-20" : "translate-x-0"}`}>
-            <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
-               <FontAwesome color={"green"} name="check" size={24}/>
-            </TouchableOpacity>
-            <TouchableOpacity 
-               className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
-               onPress={onPressDelete}
-            >
-               <FontAwesome color={"red"} name="close" size={24}/>
-            </TouchableOpacity>
-         </View>
+      <View className="flex-row">
+         {edit ? (
+            <View className="flex-row">
+               <TouchableOpacity 
+                  className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
+                  onPress={() => setEdit(true)}
+               >
+                  <MaterialIcons color={"green"} name="edit" size={24}/>
+               </TouchableOpacity>
+               <TouchableOpacity 
+                  className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
+                  onPress={onPressDelete}
+               >
+                  <FontAwesome color={"red"} name="trash" size={24}/>
+               </TouchableOpacity>
+            </View>
+         ) :(
+            <View className="flex-row">
+               <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
+                  <FontAwesome color={"green"} name="check" size={24}/>
+               </TouchableOpacity>
+               <TouchableOpacity 
+                  className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
+                  onPress={() => setEdit(false)}
+               >
+                  <FontAwesome color={"red"} name="close" size={24}/>
+               </TouchableOpacity>
+            </View>
+         )}
       </View>
    )
 }
