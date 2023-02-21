@@ -18,21 +18,21 @@ const Todo:FC<{item: TodoType}> = ({
             ) : (
                <Text className="flex-1 px-2">{item.text}</Text>
          )}
-         <Buttons id={item.id} setEdit={setEdit}/>
+         <Buttons id={item.id} edit={edit} setEdit={setEdit}/>
       </View>
    )
 }
 export default Todo
 
 
-const Buttons = ({id, setEdit}) => {
+const Buttons = ({id, edit, setEdit}) => {
    const dispatch = useAppDispatch()
    const onPressDelete = () => {
       dispatch(deleteTodo(id))
    }
    return (
-      <View className="flex-row transform translate-x-full">
-         <View className="flex-row translate-x-20">
+      <View className="flex-row w-20">
+         <View className={`flex-row ${!edit ? "translate-x-0" : "translate-x-20"}`}>
             <TouchableOpacity 
                className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square"
                onPress={() => setEdit(true)}
@@ -46,7 +46,7 @@ const Buttons = ({id, setEdit}) => {
                <FontAwesome color={"red"} name="trash" size={24}/>
             </TouchableOpacity>
          </View>
-         <View className="flex-row translate-x-20">
+         <View className={`flex-row ${edit ? "-translate-x-20" : "translate-x-0"}`}>
             <TouchableOpacity className="border-l border-gray-300 w-10 flex items-center justify-center aspect-square">
                <FontAwesome color={"green"} name="check" size={24}/>
             </TouchableOpacity>
